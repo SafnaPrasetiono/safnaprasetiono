@@ -54,6 +54,9 @@
                         </ul>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link disabled">Gallery</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link disabled">About Me</a>
                     </li>
                 </ul>

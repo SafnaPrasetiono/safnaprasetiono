@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 
 <head>
     <meta charset="UTF-8">
@@ -34,7 +34,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        <a class="nav-link active" aria-current="page" href="#">Beranda</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Blog</a>
@@ -42,22 +42,22 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                             data-bs-toggle="dropdown" aria-expanded="false">
-                            Service
+                            Layanan
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="#">Modul</a></li>
-                            <li><a class="dropdown-item" href="#">Documents</a></li>
+                            <li><a class="dropdown-item" href="#">Belajar Online</a></li>
+                            <li><a class="dropdown-item" href="#">Dokumen</a></li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li><a class="dropdown-item" href="#">Download</a></li>
+                            <li><a class="dropdown-item" href="#">Unduh File</a></li>
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link disabled">Gallery</a>
+                        <a class="nav-link disabled">Galeri</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link disabled">About Me</a>
+                        <a class="nav-link disabled">Tentang Kami</a>
                     </li>
                 </ul>
             </div>

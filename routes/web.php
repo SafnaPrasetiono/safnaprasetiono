@@ -4,6 +4,7 @@ use App\Http\Controllers\authController;
 use App\Http\Controllers\admin\dashboardController;
 use App\Http\Controllers\admin\educationAdmin;
 use App\Http\Controllers\admin\educationsController;
+use App\Http\Controllers\admin\profileAdmin;
 use App\Http\Controllers\admin\settingController;
 use App\Http\Controllers\homeController;
 use Illuminate\Support\Facades\Route;
@@ -32,6 +33,9 @@ Route::post('/admin/signup/post', [authController::class, 'postSignup'])->name('
 Route::group(['prefix' => 'admin',  'middleware' => 'auth:admin'], function() {
     Route::get('/dashboard', [dashboardController::class,'dashboard'])->name('admin.dashboard');
     // Route::get('/dashboard', [educationsController::class,''])->name('admin.educations');
+
+    // profile admin
+    Route::get('/profile', [profileAdmin::class, 'index'])->name('admin.profile');
 
     Route::get('/education', [educationAdmin::class, 'index'])->name('admin.education.index');
     Route::get('/education/create', [educationAdmin::class, 'create'])->name('admin.education.create');

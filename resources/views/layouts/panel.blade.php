@@ -19,8 +19,8 @@
     <link rel="stylesheet" href="{{ asset('/dist/app/css/app.css') }}">
     <link rel="stylesheet" href="{{ asset('/dist/icons/css/all.css') }}">
     <link rel="stylesheet" href="{{ asset('/dist/style/css/index.css') }}">
-
     @yield('head')
+    @livewireStyles
 </head>
 
 <body>
@@ -122,7 +122,9 @@
     <script src="{{ asset('/dist/style/js/popper.js') }}"></script>
     <script src="{{ asset('/dist/app/js/app.js') }}"></script>
     <script src="{{ asset('/dist/style/js/index.js') }}"></script>
+    <script src="{{ asset('/dist/style/js/alert.js') }}"></script>
     @yield('script')
+    @livewireScripts
 </body>
 
 </html>

@@ -1,77 +1,32 @@
-@extends('auth.layout.panel-auth')
+<!DOCTYPE html>
+<html lang="id">
 
-@section('head')
-<title>login - wellcome in login admins</title>
-@endsection
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-@section('pages')
-<div class="box-auth">
-    <div class="container">
-        <div class="head-auth pt-5 pt-md-4 pb-3 pb-md-4">
-            <h2 class="text-primary">Login</h2>
-            <p class="m-0">Wellcome in login pages</p>
-        </div>
-        <div class="auth-body py-3 py-md-2">
-            <form action="{{ route('admin.login.post') }}" method="post">
-                @csrf
-                <div class="mb-3">
-                    <input type="email" name="email" class="form-control @error('email') is-invalid @enderror"
-                        id="exampleInputEmail1" placeholder="Your Email" value="{{ old('email') }}">
-                    @error('email')
-                    <div class="invalid-feedback">
-                        {{ $message }}
-                    </div>
-                    @enderror
-                </div>
-                <div class="mb-3">
-                    <input type="password" name="password" class="form-control @error('password') is-invalid @enderror"
-                    placeholder="Password">
-                @error('password')
-                <div class="invalid-feedback">
-                    {{ $message }}
-                </div>
-                @enderror
-                </div>
-                <div class="d-flex mb-4 mb-md-3">
-                    <div class="form-check">
-                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                        <label class="form-check-label" for="exampleCheck1">Check me out</label>    
-                    </div>
-                    <a href="#" class="ms-auto text-decoration-none">Get Password?</a>
-                </div>
-                <button type="submit" class="btn btn-primary form-control">Submit</button>
-            </form>
-        </div>
-        <div class="auth-footer py-3 py-md-0">
-            <small class="d-block py-3 text-center text-secondary">
-                - OR -
-            </small>
-            <div class="row align-items-center justify-content-center py-2 mb-2">
-                <div class="col-auto">
-                    <a href="" class="other-link alert-secondary">
-                        <img src="{{ url('/images/icons/google.png') }}" alt="links-google" class="img-fluid">
-                    </a>
-                </div>
-                <div class="col-auto">
-                    <a href="" class="other-link">
-                        <img src="{{ url('/images/icons/facebook.png') }}" alt="links-facebook" class="img-fluid">
-                    </a>
-                </div>
-                <div class="col-auto">
-                    <a href="" class="other-link">
-                        <img src="{{ url('/images/icons/twitter.png') }}" alt="links-switter" class="img-fluid">
-                    </a>
-                </div>
-            </div>
-            <div class="text-center py-2 mb-3">
-                <small class="d-block text-secondary">Dont Heave Account</small>
-                <a href="/admin/signup" class="text-decoration-none">SIGNUP</a>
-            </div>
-        </div>
+    <link rel="stylesheet" href="{{ asset('/dist/app/css/app.css') }}">
+    <link rel="stylesheet" href="{{ asset('/dist/icons/css/all.css') }}">
+    <link rel="stylesheet" href="{{ asset('/dist/style/css/auth.css') }}">
+    <link rel="stylesheet" href="{{ asset('/dist/style/css/index.css') }}">
+    <title>login - wellcome in login admins</title>
+    @livewireStyles
+</head>
+
+<body>
+
+    <div class="auth-pages">
+        @livewire('auth.login-admin')
     </div>
-</div>
-@endsection
 
-@section('script')
+    <script src="{{ asset('/dist/style/js/jquery.js') }}"></script>
+    <script src="{{ asset('/dist/style/js/popper.js') }}"></script>
+    <script src="{{ asset('/dist/app/js/app.js') }}"></script>
+    <script src="{{ asset('/dist/style/js/index.js') }}"></script>
+    <script src="{{ asset('/dist/style/js/alert.js') }}"></script>
+    @yield('script')
+    @livewireScripts
+</body>
 
-@endsection
+</html>

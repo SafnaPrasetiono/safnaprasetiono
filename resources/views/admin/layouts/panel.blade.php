@@ -27,106 +27,127 @@
 
 <body>
 
-    <div class="wrapper alert-secondary">
-        <nav class="navbar navbar-expand-md navbar-light py-1 bg-white">
+    <div class="wrapper">
+        <nav class="navbar navbar-expand-md navbar-light bg-light py-1">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#">Navbar</a>
-                <button class="navbar-toggler" type="button" id="btn-slider-toggle">
-                    <i class="fas fa-bars fa-lg fa-fw"></i>
+                <button class="btn btn-default" id="btn-slider" type="button">
+                    <i class="fa fa-bars fa-lg" aria-hidden="true"></i>
                 </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page"
-                                href="{{ route('admin.dashboard') }}">dashboard</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">
-                                Dropdown
+                <a class="navbar-brand me-auto text-danger" href="#">Dash<span class="text-warning">Board</span></a>
+                <ul class="nav ms-auto">
+                    <li class="nav-item dropstart">
+                        <a class="nav-link text-dark ps-3" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown">
+                            <i class="fa fa-bell fa-lg py-2" aria-hidden="true"></i>
+                            <span class="badge bg-danger">10</span>
+                        </a>
+                        <div class="dropdown-menu mt-2 pt-0" aria-labelledby="navbarDropdown">
+                            <div class="d-flex p-3 border-bottom align-items-cente mb-2">
+                                <i class="fa fa-bell me-3" aria-hidden="true"></i>
+                                <span class="fw-bold lh-1">Notifikasi</span>
+                            </div>
+                            <a class="dropdown-item py-2 overflow-hidden text-truncate" href="#">
+                                <p class="lh-1 mb-0 fw-bold">Sample</p>
+                                <small class="content-text">Lorem ipsum dolor sit amet consectetur adipisicing
+                                    elit. Quia sint laboriosam in architecto earum.</small>
                             </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="#">Action</a></li>
-                                <li><a class="dropdown-item" href="#">Another action</a></li>
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
-                                <li><a class="dropdown-item" href="#">Something else here</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
+                        </div>
+                    </li>
+                    <li class="nav-item dropstart">
+                        <a class="nav-link text-dark ps-3 pe-1" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown">
+                            <img src="{{ url('/images/avatar/' . auth('admin')->user()->avatar) }}" alt="user" class="img-user">
+                        </a>
+                        <div class="dropdown-menu mt-2 pt-0" aria-labelledby="navbarDropdown">
+                            <div class="d-flex p-3 border-bottom mb-2">
+                                <img src="{{ url('/images/avatar/' . auth('admin')->user()->avatar) }}" alt="user"
+                                    class="img-user me-2">
+                                <div class="d-block mt-1">
+                                    <p class="fw-bold m-0 lh-1">Username</p>
+                                    <small>Email@gmail.com</small>
+                                </div>
+                            </div>
+                            <a class="dropdown-item" href="#">
+                                <i class="fa fa-user fa-lg me-3" aria-hidden="true"></i>Profile
+                            </a>
+                            <a class="dropdown-item" href="#">
+                                <i class="fa fa-cog fa-lg me-3" aria-hidden="true"></i>Setting
+                            </a>
+                            <hr class="dropdown-divider">
+                            <a class="btnLogout dropdown-item" href="#">
+                                <i class="fa fa-sign-out fa-lg me-2" aria-hidden="true"></i>LogOut
+                            </a>
+                        </div>
+                    </li>
+                </ul>
             </div>
         </nav>
 
-        <div class="slider bg-primary" id="slider-toggle">
-            <div class="d-flex p-2 justify-content-between align-items-center">
-                <div class="d-flex border rounded text-white fw-bold overflow-hidden ms-2">
-                    <span class="ps-2 pe-1">Resume</span>
-                    <span class="bg-light border-0 pb-1 px-2 text-primary">SP</span>
+        <div class="slider" id="sliders">
+            <div class="slider-head">
+                <div class="d-block p-3">
+                    <img src="{{ url('/images/avatar/' . auth('admin')->user()->avatar) }}" alt="user" class="slider-img-user mb-2">
+                    <p class="fw-bold mb-0 lh-1 text-color">{{auth('admin')->user()->username}}</p>
+                    <small class="text-color">{{auth('admin')->user()->email}}</small>
                 </div>
-                <button class="btn btn-outline-light d-block d-md-none lh-1 py-1 px-2 m-1 shadow end-0"
-                    onclick="sliderToggle()">
-                    <i class="fas fa-arrow-left fa-sm fa-fw py-1"></i>
-                </button>
             </div>
-            <div class="p-1">
-                <nav class="nav flex-column" id="slider-accordion">
-                    <a class="nav-link slider-link active" aria-current="page" href="{{ route('admin.dashboard') }}">
-                        <i class="fas fa-home box-icons fa-fw"></i>Dashboard
+            <div class="slider-body px-1 pb-4">
+                <nav class="nav flex-column" id="nav-acordion">
+                    <a class="nav-link active" href="{{ route('admin.dashboard') }}">
+                        <i class="fa fa-home box-icon" aria-hidden="true"></i>Dashboard
                     </a>
-                    <a class="nav-link slider-link active" href="#">
-                        <i class="fas fa-user box-icons fa-fw"></i>Profile
+                    <a class="nav-link" href="{{ route('admin.profile') }}">
+                        <i class="fas fa-user box-icon" aria-hidden="true"></i>Profile
                     </a>
-                    <hr class="dropdown-divider bg-white">
-                    <a class="nav-link slider-link" href="#" data-bs-toggle="collapse" data-bs-target="#educations">
-                        <i class="fas fa-school box-icons fa-fw"></i>Pendidikan
-                        <i class="fas fa-caret-down fa-fw ms-auto box-icons-arrow"></i>
+                    <hr class="soft my-1 bg-white">
+                    <a class="nav-link collapsed" href="#loker" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#loker">
+                    <i class="fas fa-briefcase box-icon fa-fw"></i>Loker
+                    <span class="indications">
+                        <i class="fas fa-angle-up fa-sm fa-fw"></i>
+                    </span>
                     </a>
-                    <div class="accordion-collapse collapse" id="educations">
-                        <a class="nav-link slider-link-secondary" href="#"> <i
-                                class="fas fa-angle-right fa-xs fa-fw"></i>Formal</a>
-                        <a class="nav-link slider-link-secondary" href="#"> <i
-                                class="fas fa-angle-right fa-xs fa-fw"></i>Tidak Formal</a>
-                        <a class="nav-link slider-link-secondary" href="{{ route('admin.education.index') }}"> <i
-                                class="fas fa-angle-right fa-xs fa-fw"></i>all Data</a>
+                    <div id="loker" class="accordion-collapse collapse" data-bs-parent="#nav-accordion">
+                        <a class="nav-link nav-link-child ps-5" href="#">
+                            <i class="fas fa-users box-icon fa-fw"></i>Magang
+                        </a>
+                        <a class="nav-link nav-link-child ps-5" href="#">
+                            <i class="far fa-user-hard-hat box-icon fa-fw"></i>Bursa Kerja
+                        </a>
                     </div>
-                    <a class="nav-link slider-link" href="#" data-bs-toggle="collapse"
-                        data-bs-target="#skills">Keahlian</a>
-                    <div class="accordion-collapse collapse " id="skills" data-bs-parent="#slider-accordion">
-                        <a class="nav-link slider-link-secondary" href="#"> <i
-                                class="fas fa-angle-right fa-xs fa-fw"></i>Pribadi</a>
-                        <a class="nav-link slider-link-secondary" href="#"> <i
-                                class="fas fa-angle-right fa-xs fa-fw"></i>Programming</a>
-                        <a class="nav-link slider-link-secondary" href="#"> <i
-                                class="fas fa-angle-right fa-xs fa-fw"></i> Lainnya</a>
-                    </div>
-                    <hr class="dropdown-divider bg-white">
-                    <a class="nav-link slider-link" href="#">
-                        <i class="fas fa-photo-video box-icons fa-fw"></i>Konten
+                    <a class="nav-link" href="#">
+                        <i class="far fa-backpack box-icon fa-fw"></i>Karantina
                     </a>
-                    <a class="nav-link slider-link" href="#">
-                        <i class="fas fa-file-code box-icons fa-fw"></i>Projek
+                    <hr class="soft my-1 bg-white">
+                    <a class="nav-link" href="#">
+                        <i class="fas fa-newspaper box-icon" aria-hidden="true"></i>Berita
                     </a>
-                    <hr class="dropdown-divider bg-white">
-                    <a class="nav-link slider-link" href="{{ route('admin.setting') }}">
-                        <i class="fas fa-cog box-icons fa-fw"></i>Setting
+                    <hr class="soft my-1 bg-white">
+                    <a class="nav-link px-3" href="#">
+                        <i class="fas fa-file-alt box-icon fa-fw"></i>Pages
                     </a>
-                    <a class="nav-link slider-link" href="#">
-                        <i class="fas fa-sign-out-alt box-icons fa-fw"></i>LogOut
+                    <a class="nav-link px-3" href="#">
+                        <i class="fas fa-users box-icon fa-fw"></i>User Data
+                    </a>
+                    <hr class="soft my-1 bg-white">
+                    <a class="btnLogout nav-link px-3" href="#">
+                        <i class="fas fa-sign-out-alt box-icon"></i>LogOut
                     </a>
                 </nav>
             </div>
         </div>
+
         <div class="main-pages">
             @yield('pages')
         </div>
     </div>
 
+    <div class="slider-background" id="sliders-background"></div>
     <script src="{{ asset('/dist/style/js/jquery.js') }}"></script>
     <script src="{{ asset('/dist/style/js/popper.js') }}"></script>
     <script src="{{ asset('/dist/app/js/app.js') }}"></script>
     <script src="{{ asset('/dist/style/js/admin/dashboard.js') }}"></script>
+    <script src="{{ asset('/dist/style/js/alert.js') }}"></script>
     @yield('script')
 
     @livewireScripts
